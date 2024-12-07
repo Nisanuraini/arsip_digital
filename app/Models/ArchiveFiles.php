@@ -13,6 +13,6 @@ class ArchiveFiles extends Model
 
     public function archive()
     {
-        return $this->belongsTo(Archive::class);
+        return $this->belongsTo(Archives::class);
     }
 }
