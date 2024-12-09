@@ -13,6 +13,8 @@ class Tag extends Model
 
     public function archives()
     {
-        return $this->belongsToMany(Archive::class, 'archive_tag');
+    return $this->belongsToMany(Archive::class, 'archive_tag', 'tag_id', 'archive_id');
     }
+
+
 }

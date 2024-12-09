@@ -28,6 +28,10 @@ class ArchivesResource extends Resource
                 Forms\Components\Select::make('category_id')
                 ->relationship('category', 'name')
                 ->required(),
+                Forms\Components\MultiSelect::make('tags')
+                ->relationship('tags', 'name') // Menampilkan kolom 'name' dari tabel tags
+                ->label('Tags')
+                ->required(),
             ]);
     }
 
@@ -38,6 +42,8 @@ class ArchivesResource extends Resource
                 Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('category.name')->label('Category'),
+                Tables\Columns\TagsColumn::make('tags.name')
+                ->label('Tags'),
             ])
             ->filters([
                 //
